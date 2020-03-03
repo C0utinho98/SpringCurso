@@ -1,7 +1,7 @@
 package com.emerson.springvscode.resource;
 
-import com.emerson.springvscode.domain.Categoria;
-import com.emerson.springvscode.services.CategoriaService;
+import com.emerson.springvscode.domain.Cliente;
+import com.emerson.springvscode.services.ClienteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * CategoriaResource
+ * ClienteResource
  */
 @RestController
-@RequestMapping(value = "/categorias")
-public class CategoriaResource {
+@RequestMapping(value = "/clientes")
+public class ClienteResource {
 
   @Autowired
-  private CategoriaService service;
+  private ClienteService service;
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   public ResponseEntity<?> find(@PathVariable Integer id) {
-    Categoria obj = service.buscar(id);
+    Cliente obj = service.buscar(id);
 
     return ResponseEntity.ok().body(obj);
   }
