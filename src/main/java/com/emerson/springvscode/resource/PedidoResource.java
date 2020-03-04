@@ -1,7 +1,7 @@
 package com.emerson.springvscode.resource;
 
-import com.emerson.springvscode.domain.Cliente;
-import com.emerson.springvscode.services.ClienteService;
+import com.emerson.springvscode.domain.Pedido;
+import com.emerson.springvscode.services.PedidoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * ClienteResource
+ * PedidoResource
  */
 @RestController
-@RequestMapping(value = "/clientes")
-public class ClienteResource {
+@RequestMapping(value = "/pedidos")
+public class PedidoResource {
 
   @Autowired
-  private ClienteService service;
+  private PedidoService service;
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public ResponseEntity<Cliente>find(@PathVariable Integer id) {
-    Cliente obj = service.find(id);
+  public ResponseEntity<Pedido> find(@PathVariable Integer id) {
+    Pedido obj = service.find(id);
 
     return ResponseEntity.ok().body(obj);
   }
